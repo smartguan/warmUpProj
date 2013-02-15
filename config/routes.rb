@@ -1,4 +1,24 @@
 WarmUpProj::Application.routes.draw do
+  get "users/add"
+
+  get "users/login"
+
+  get "sign_up_page/client"
+
+  #link to the controller, from webpage to the controller
+  root to: "sign_up_page#client"
+
+  #links /client.js to the front page js file
+  match '/client.js', to: 'sign_up_page#client.js.erb'
+  match '/client.css', to: 'sign_up_page#client.css.erb'
+  
+  #route http request to user_controller add func
+  match '/users/add', to: 'users#add'
+
+  #route http request to user_controller login func
+  match '/users/login', to: 'users#login'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
