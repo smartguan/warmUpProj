@@ -27,7 +27,7 @@ WarmUpProj::Application.routes.draw do
 
   #route http test request to user_controller test func's
   match '/TESTAPI/unitTests', to: 'testapi#unit_test'
-  match '/TESTAPI/unitTests', to: 'testapi#reset_fixture'
+  match '/TESTAPI/resetFixture', to: 'testapi#reset_fixture'
 
 
   # The priority is based upon order of creation:
