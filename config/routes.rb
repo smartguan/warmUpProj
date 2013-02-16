@@ -20,14 +20,15 @@ WarmUpProj::Application.routes.draw do
   match '/client.css', to: 'sign_up_page#client.css.erb'
   
   #route http request to user_controller add func
-  match '/users/add', to: 'users#add'
+  match '/users/add', to: 'users#add', :via => :post, :defaults => {format: "json"}
 
   #route http request to user_controller login func
-  match '/users/login', to: 'users#login'
+  match '/users/login', to: 'users#login', :via => :post, :defaults => {format: "json"}
 
   #route http test request to user_controller test func's
-  match '/TESTAPI/unitTests', to: 'testapi#unit_test'
-  match '/TESTAPI/resetFixture', to: 'testapi#reset_fixture'
+  match '/TESTAPI/unitTests', to: 'testapi#unit_test', :via => :post, :defaults => {format: "json"}
+  match '/TESTAPI/resetFixture', to: 'testapi#reset_fixture', :via => :post, :defaults => {format: "json"}
+
 
 
   # The priority is based upon order of creation:

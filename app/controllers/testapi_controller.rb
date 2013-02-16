@@ -1,16 +1,21 @@
 class TestapiController < ApplicationController
-  def unit_testi
+  def unit_test
     system('./run_unit_test.sh')
+    output = { totalTests: 0, nrFailed: 0, output: "" }
+    fuck = ""
     
     File.open("./unit_test_result.txt", "r").each_line do |line|
       match = /(\d+) examples, (\d+) failures/.match(line)
+      output[:output] << line
       if match
-        out = {:example => match[1], :failures => match[2]}
+        output[:totalTests] = Integer(match[1])
+        output[:nrFailed] = Integer(match[2])
       end
     end
 
+
     respond_to do |format|
-      format.json { render json: out }
+      format.json { render json: output }
     end
   end
 
