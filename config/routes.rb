@@ -1,4 +1,8 @@
 WarmUpProj::Application.routes.draw do
+  get "testapi/unit_test"
+
+  get "testapi/reset_fixture"
+
   get "users/add"
 
   get "users/login"
@@ -7,6 +11,9 @@ WarmUpProj::Application.routes.draw do
 
   #link to the controller, from webpage to the controller
   root to: "sign_up_page#client"
+  
+  #root /sighup path to sign_up_page
+  match '/signup', to: 'sigh_up_page#client'
 
   #links /client.js to the front page js file
   match '/client.js', to: 'sign_up_page#client.js.erb'
@@ -17,6 +24,10 @@ WarmUpProj::Application.routes.draw do
 
   #route http request to user_controller login func
   match '/users/login', to: 'users#login'
+
+  #route http test request to user_controller test func's
+  match '/TESTAPI/unitTests', to: 'testapi#unit_test'
+  match '/TESTAPI/unitTests', to: 'testapi#reset_fixture'
 
 
   # The priority is based upon order of creation:

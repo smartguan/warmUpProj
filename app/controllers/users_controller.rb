@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if not Users.exists?(:name => @user.name)
-        if @user.name == "" or @user.name.size > 128
+        if @user.name.blank? or @user.name.size > 128
           format.json {render json: {errCode: -3, count: @user.count}}
         elsif @user.password.size > 128
           format.json {render json: {errCode: -4, count: @user.count}}
