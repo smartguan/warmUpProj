@@ -1,19 +1,89 @@
 /* This file contains the style parameters for the sample client. */
 
 
+#wrapper {
+    margin: 50px auto;
+    width: 800px;
+}
+
+
+label {
+    display: block;
+    margin-top: 2px;
+    margin-left: 70px;
+}
+
+input {
+    width: 200px;
+    border: 1px solid #000;
+    font-size: 0.9em;
+    color: #888;
+    padding: 3px;
+    display: block;
+    margin: 0 auto; 
+
+}
+
+input:focus {
+    border: 1px solid #99cc66;
+}
+
+
+#login-button, #add-user-button, #logout-button {
+    width: 80px;
+    height: 25px;
+    text-indent: 0px;
+    border: 1px solid #8a2be2;
+    color: #8a2be2;
+
+    display: inline-block;
+    margin: 10px 1px 10px 60px;
+    margin-top: 10px;
+}
+
+#logout-button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+
+
 .box {
-    width: 400px;
-    height: 300px;
+    width: 350px;
+    height: 250px;
     border: thin black solid;
     background-color: rgb(243,243,243);
+    position: absolute;
+    top: 200px;
+    right: 100px;
+    margin: 0 auto;
+
+
 }
 
 .message {
-    margin: 10px 20px 10px 20px;
+    /* margin: 10px 20px 10px 20px; 
+    */
+    margin: 0 auto;
+    margin-top: 5px;
+    color: black;
+    width: 300px;
     border: thin black solid;
+}
+
+#welcome-message {
+    color: green;
+}
+
+
+#login-message {
+    color: red;
 }
 
 body {
 	font-family: 'Helvetica Neue Light', HelveticaNeue-Light, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: #000;
 }
 

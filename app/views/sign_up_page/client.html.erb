@@ -9,28 +9,36 @@
 <script type="text/javascript" src="client.js"></script>
 </head>
 
-<center>
-<div id="login-page" class="box">
-  <div id="login-message" class="message"></div>
-  <center>
-    <form>
-      Username: <input id="login-username" type="text" name="username"><br>
-      Password: <input id="login-password" type="password" name="pwd"><br>
-      <input id="login-button" type="submit" value="Login">
-      <input id="add-user-button" type="submit" value="Add User">
-    </form>
-  </center>
-</div>
 
-<div id="welcome-page" class="box">
-  <div id="welcome-message" class="message"></div>
-  <center>
-    <form>
-      <input type="submit" id="logout-button" value="Logout">
-    </form>
-  </center>
+<!-- 
+/*layout of the sign_up_page*/
+-->
+<div id="wrapper">
+  <div id="login-page" class="box">
+    <div id="login-message" class="message"></div>
+    <div id="login-request" class="message"></div>
+      <form method="post" action="">
+
+        <label>Username:</label> 
+        <input id="login-username" type="text" name="username" placeholder="Your name here"><br>
+
+        <label>Password :</label> 
+        <input id="login-password" type="password" name="pwd" placeholder="Your password here"><br>
+
+        <input id="login-button" type="submit" value="Login">
+        <input id="add-user-button" type="submit" value="Add User">
+      </form>
+  </div>
+  
+  <div id="welcome-page" class="box">
+    <div id="welcome-message" class="message"></div> 
+    <div id="center_1" class="centerDiv">
+      <form>
+        <input type="submit" id="logout-button" value="Logout">
+      </form>
+    </div>
+  </div>
 </div>
-</center>
 
 <script type="text/javascript">
 <!--
@@ -40,7 +48,7 @@ $('#login-page').hide()
 $('#welcome-page').hide()
 $('#login-username').val("")
 $('#login-password').val("")
-$('#login-message').html("Please enter your credentials below")
+//$('#login-request').html("Please enter your credentials below")
 $('#welcome-message').html("You should never see this text");
 
 /* setup the page so that only one of the forms is shown */
@@ -52,11 +60,20 @@ $(document).ready(function() {
    state.  This makes them slightly slower, but has the side effect of 
    restoring any invariant that gets accidentally broken.*/
 function show_login_page(message) {
-  if(! message) message = "Please enter your credentials below";
+  if(!message)  {
+    message = "Please enter your credentials below"; 
+    $('#login-message').hide()
+    $('#login-request').show()
+    $('#login-request').html(message) 
+  }
+  else {
+    $('#login-request').hide()
+    $('#login-message').show()
+    $('#login-message').html(message) 
+  }
   $('#welcome-page').hide()
   $('#login-username').val("")
   $('#login-password').val("")
-  $('#login-message').html(message)
   $('#login-page').show()
 }
 
