@@ -28,6 +28,10 @@
         <input id="login-button" type="submit" value="Login">
         <input id="add-user-button" type="submit" value="Add User">
       </form>
+    <div>
+      <img id="login-image" src="http://i.dailymail.co.uk/i/pix/2008/11/05/article-1083253-025E5E5F000005DC-718_468x702.jpg"
+          alt="A image on login"  />
+    </div>
   </div>
   
   <div id="welcome-page" class="box">
@@ -37,8 +41,10 @@
         <input type="submit" id="logout-button" value="Logout">
       </form>
     </div>
+    <iframe id="welcome-video" src="http://www.youtube.com/embed/x773HhPEkMs?feature=player_detailpage" allowfullscreen></iframe>
   </div>
 </div>
+
 
 <script type="text/javascript">
 <!--
@@ -48,7 +54,7 @@ $('#login-page').hide()
 $('#welcome-page').hide()
 $('#login-username').val("")
 $('#login-password').val("")
-//$('#login-request').html("Please enter your credentials below")
+$('#login-request').html("Please enter your credentials below")
 $('#welcome-message').html("You should never see this text");
 
 /* setup the page so that only one of the forms is shown */
